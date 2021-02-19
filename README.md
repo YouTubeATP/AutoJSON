@@ -12,7 +12,7 @@ This script names sound event names based on the file's location in the `assets\
       }
     }
 ### Script placement
-Place the script (`autoJSON.py`), along with `requirements.txt` to `pack\python`, where `pack` is the root directory of the resource pack..
+Place the script (`autoJSON.py`), along with `requirements.txt` to `pack\python`, where `pack` is the root directory of the resource pack.
 ### Dependencies
 Dependencies are defined in the `requirements.txt` file.<br/>In a terminal, change to the `pack\python` directory and run `pip install -r requirements.txt`.
 ### Running
