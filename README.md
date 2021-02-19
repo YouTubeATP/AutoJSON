@@ -5,11 +5,11 @@ This is a small Python script that automatically generates the `sounds.json` fil
 This script names sound event names based on the file's location in the `assets\minecraft\sounds` folder.<br/>For example, if a file called `hi.ogg` is stored in the `assets\minecraft\sounds\hello\hiya` folder, the following will be generated in `sounds.json`:
 
     "hello.hiya.hi": {
-      "sounds": {
-        "name": [
-          "hello/hiya/hi"
-        ]            
-      }
+      "sounds": [
+        {
+          "name": "hello/hiya/hi"
+        }
+      ]
     }
 ### Script placement
 Place the script (`autoJSON.py`), along with `requirements.txt` to `pack\python`, where `pack` is the root directory of the resource pack.
