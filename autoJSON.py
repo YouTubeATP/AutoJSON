@@ -18,8 +18,8 @@ def je():
             if not name.endswith(".ogg"):
                 try:
                     file_type = name[name.rfind(".") + 1:]
-                    file = AudioSegment.from_file(os.path.join(root, name), format="mp3")
-                    file.export(os.path.join(root, name).replace(".mp3", ".ogg"), format="ogg")
+                    file = AudioSegment.from_file(os.path.join(root, name), format=file_type)
+                    file.export(os.path.join(root, name).replace("." + file_type, ".ogg"), format="ogg")
                     os.remove(os.path.join(root, name))
                     print(f"Converted {os.path.join(root, name)}")
                 except Exception:
@@ -46,8 +46,8 @@ def be():
             if not name.endswith(".ogg"):
                 try:
                     file_type = name[name.rfind(".") + 1:]
-                    file = AudioSegment.from_file(os.path.join(root, name), format="mp3")
-                    file.export(os.path.join(root, name).replace(".mp3", ".ogg"), format="ogg")
+                    file = AudioSegment.from_file(os.path.join(root, name), format=file_type)
+                    file.export(os.path.join(root, name).replace("." + file_type, ".ogg"), format="ogg")
                     os.remove(os.path.join(root, name))
                     print(f"Converted {os.path.join(root, name)}")
                 except Exception:
