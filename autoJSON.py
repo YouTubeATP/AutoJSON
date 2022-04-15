@@ -66,12 +66,12 @@ def block():
     terrain_texture = {"resource_pack_name": pack_name, "texture_name": "atlas.terrain", "padding": 0, "num_mip_levels": 0, "texture_data": {}}
     
     def addEntry(path):
-        mcPathTop = namespace + os.path.relpath(path, start=root_path + "/textures/blocks").replace("./", "", 1)[:-4].replace("/", ".").replace("\\", ".") # Replace leading "./" and remove file extension
         mcPathBottom = os.path.relpath(path, start=root_path + "/textures/blocks").replace("./", "", 1)[:-4].replace("/", ".").replace("\\", ".") # Replace leading "./" and remove file extension
+        mcPathTop = namespace + ":" + mcPathBottom
         mcPathTexturePath = os.path.relpath(path, start=root_path + "/").replace("./", "", 1)[:-4].replace("\\", "/")
         blocks[mcPathTop] = {"textures": mcPathBottom, "sound": "stone"}
         terrain_texture["texture_data"][mcPathBottom] = {"textures": mcPathTexturePath}
-        print(f"Added entry for {os.path.relpath(path)}\nEvent name: {mcPathTop}\n\n")
+        print(f"Added entry for {os.path.relpath(path)}\nBlock name: {mcPathTop}\n\n")
     
     for root, dirs, files in os.walk(root_path + "/textures/blocks", topdown=False):
         for name in files:
