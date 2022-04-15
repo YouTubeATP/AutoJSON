@@ -27,17 +27,17 @@ def je():
                     continue
             addEntry(os.path.abspath(os.path.join(root, name)))
                 
-    with open("../assets/minecraft/sounds.json", "w") as f:
+    with open(root_path + "/assets/minecraft/sounds.json", "w") as f:
         json.dump(sounds, f, indent=2)
         
 def be():
     sounds = {"individual_event_sounds": {"events": {}}}
-    defs = {}
+    sound_definitions = {}
     
     def addEntry(path):
         mcPathTop = os.path.relpath(path, start=root_path + "/sounds").replace("./", "", 1)[:-4].replace("/", ".").replace("\\", ".") # Replace leading "./" and remove file extension
         mcPathBottom = os.path.relpath(path, start=root_path + "/").replace("./", "", 1)[:-4].replace("\\", "/")
-        defs[mcPathTop] = {"sounds": [mcPathBottom]}
+        sound_definitions[mcPathTop] = {"sounds": [mcPathBottom]}
         sounds["individual_event_sounds"]["events"][mcPathTop] = {"sound": mcPathTop, "volume": 1, "pitch": 1.0}
         print(f"Added entry for {os.path.relpath(path)}\nEvent name: {mcPathTop}\n\n")
     
@@ -59,7 +59,7 @@ def be():
         json.dump(sounds, f, indent=2)
         
     with open(root_path + "/sounds/sound_definitions.json", "w") as f:
-        json.dump(defs, f, indent=2)
+        json.dump(sound_definitions, f, indent=2)
         
 def block():
     blocks = {"format_version": "1.16.0"}
